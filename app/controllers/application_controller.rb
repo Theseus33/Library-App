@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
-  helper_method :current user
+  helper_method :current_user
 
   def sign_in(user)
     token = SecureRandom.urlsafe_base64
@@ -35,5 +35,5 @@ class ApplicationController < ActionController::Base
     flash[:error] = 'You are already signed in!'
     redirect_to users_path
   end
-  
+
 end

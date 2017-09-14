@@ -30,8 +30,8 @@ class UsersController < ApplicationController
 
     private
 
-    define create_params
+    def create_params
         params.require(:user).permit(:username, :password)
     end
-    
+
 end
