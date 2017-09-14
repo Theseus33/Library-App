@@ -23,5 +23,17 @@ class ApplicationController < ActionController::Base
     session_token = session[:session_token]
     session_token && User.find_by(session_token: session_token)
   end
+
+  def ensure_signed_in
+    return if current_user
+    flash[:error] = 'Sorry, you must be signed in first!'
+    redirect_to users_path
+  end
+
+  def ensure_signed_out
+    return unless current_user
+    flash[:error] = 'You are already signed in!'
+    redirect_to users_path
+  end
   
 end
