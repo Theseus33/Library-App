@@ -9,6 +9,26 @@
   </head>
 
   <body>
+    <div class='hero'>
+      <% if current user %>
+        <%= link_to current_user.username, user_path(current_user) %>
+        <%= button_to 'Log Out', session_path, method: :delete %>
+      <% end %>
+
+      <% if flash[:notice].present? %>
+        <div class="notice">
+        <%= flash[:notice] %>
+        </div>
+      <% end %>
+
+      <% if flash[:error].present? %>
+        <div class="errors">
+        <b>Errors:</b>
+        <%= flash[:error] %>
+        </div>
+      <% end %>
+    </div>
+    
     <%= yield %>
   </body>
 </html>
