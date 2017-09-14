@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
     has_many :books
 
+    attr_reader :password
+
     def self.find_from_credentials(username, password)
         user = find_by(username: username)
         return nil unless user

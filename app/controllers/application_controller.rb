@@ -2,11 +2,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   helper_method :current_user
+  
+  private
 
   def sign_in(user)
-    token = SecureRandom.urlsafe_base64
-    session[:session_token] = token
-    user.update_attribute(:session_token, token)
+    session[:session_token] = SecureRandom.urlsafe_base64
+    user.update!(session_token: session[:session_token])
   end 
 
   def sign_out(user)
@@ -16,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user 
-    @current_user || find_current_user
+    @current_user ||= find_current_user
   end
 
   def find_current_user

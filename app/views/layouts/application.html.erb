@@ -10,7 +10,7 @@
 
   <body>
     <div class='hero'>
-      <% if current user %>
+      <% if current_user %>
         <%= link_to current_user.username, user_path(current_user) %>
         <%= button_to 'Log Out', session_path, method: :delete %>
       <% end %>
