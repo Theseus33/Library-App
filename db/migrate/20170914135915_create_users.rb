@@ -8,6 +8,6 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.timestamps
     end
     add_index :users, :username
-    add_index :users, :sessiontoken
+    add_index :users, :session_token
   end
 end
