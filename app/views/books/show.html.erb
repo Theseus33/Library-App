@@ -3,6 +3,11 @@
 <h2> <%= @book.author %> </h2>
 <p> <%= @book.description%> </p>
 
-<%= link_to "Edit", edit_book_path(@book) %>
-<%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?"} %>
 <%= link_to "Home", root_path %>
+
+<% if current_user %>
+
+<% if @book.user_id == current_user.id %>
+    <%= link_to "Edit", edit_book_path(@book) %>
+    <%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?"} %>
+<% end %>
