@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
 
-  resources :books
+  resources :books do
+    resource :reviews
+  end
 
 end
