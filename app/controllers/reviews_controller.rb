@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
     before_action :find_book
+    before_action :find_review, only [:edit, :update, :destroy] 
 
     def new
         @review = Review.new
@@ -18,12 +19,9 @@ class ReviewsController < ApplicationController
     end
 
     def edit
-        @review = Review.find(params[:id])
     end
 
     def update
-        @review = Review.update(review_params)
-
         if @review.update(review_params)
             redirect_to book_path(@book)
         else
@@ -39,5 +37,9 @@ class ReviewsController < ApplicationController
         
         def find_book
             @book = Book.find(params[:book_id])
+        end
+
+        def find_review
+            @review = Review.update(review_params)
         end
 end
