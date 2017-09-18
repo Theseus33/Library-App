@@ -8,7 +8,7 @@ else
   
         <div class="col-md-4">
             <a href="/books/<%= book.id %>">
-                <%= image_tag book.book_img.url(:book_index) %>
+                <%= image_tag @book.book_img.url(:book_index) %>
             </a>
         </div>
     <% end %>   
