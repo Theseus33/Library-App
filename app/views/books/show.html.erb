@@ -1,6 +1,7 @@
 <h1> Show book page </h1>
 <h1> <%= @book.title %> </h1>
-<h2> <%= @book.author %> </h2>
+<h2> Author: <%= @book.author %> </h2>
+<h2> Genre: <%= @book.category.name %>
 <p> <%= @book.description%> </p>
 
 <%= link_to "Home", root_path %>
