@@ -8,10 +8,12 @@ class BooksController < ApplicationController
 
     def show
         @book = Book.find(params[:id])
+
     end
 
     def new 
         @book = current_user.books.build
+        @categories = Category.all.map{ |f| [f.name, f.id] }
     end
 
     def create 
