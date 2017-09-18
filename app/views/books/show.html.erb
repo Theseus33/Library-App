@@ -1,7 +1,8 @@
-<h1> Show book page </h1>
+
 <h1> <%= @book.title %> </h1>
-<h2> Author: <%= @book.author %> </h2>
-<h2> Genre: <%= @book.category.name %>
+
+<h3> Author: <%= @book.author %> </h3>
+<h3> Genre: <%= @book.category.name %></h3>
 <p> <%= @book.description%> </p>
 
 <%= link_to "Home", root_path %>
@@ -10,4 +11,5 @@
     <% if @book.user_id == current_user.id %>
         <%= link_to "Edit", edit_book_path(@book) %>
         <%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: "Are you sure?"} %>
-    <% end %>   
+    <% end %> 
+<% end %>  
