@@ -28,6 +28,11 @@ class ReviewsController < ApplicationController
             render 'edit'
         end
     end
+
+    def destroy
+        @review.destroy
+        redirect_to book_path(@book)
+    end
     
     private
 
