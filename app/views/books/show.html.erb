@@ -10,7 +10,21 @@
         <p> <%= @book.description%> </p>
     </div>
 
+</div>
+
 <%= link_to "Home", root_path %>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div>
+                <%= link_to "Add Review", new_book_reviews_path(@book) %>
+            </div>
+
+
+        </div>
+    </div>
+
 
 <% if current_user %>
     <% if @book.user_id == current_user.id %>
