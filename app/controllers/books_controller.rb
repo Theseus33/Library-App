@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
     before_action :find_book, only: [:show, :edit, :destroy]
+    # before_action :require_login, except: [:index, :show]
 
     def index
         @books = Book.all.order("created_at DESC")
@@ -16,11 +17,28 @@ class BooksController < ApplicationController
     def create 
         @book = Book.new(book_params)
 
-        if  @book.save
+        if @book.save
             redirect_to root_path
         else 
             render 'new'
         end
+    end
+
+    def edit
+        
+    end
+
+    def update
+        if @book.update(book_params)
+            redirect_to book_path(@book)
+        else
+            render 'edit'
+        end
+    end
+
+    def destroy
+        @book.destroy
+        redirect_to root_path
     end
 
     private

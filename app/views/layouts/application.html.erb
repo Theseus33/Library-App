@@ -10,6 +10,27 @@
 
   <body>
     <div class='hero'>
+    <nav class="navbar navbar-default">
+
+      <div class="container">
+
+        <div class="navbar-header">
+          <%= link_to "Book Club", root_path, class: "brand"%>
+        </div>
+
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Sign Up", users_path %></li>
+            <% if current_user %>
+              <li><%= link_to "Sign Out", session_path %></li>
+            <% else %>
+              <li><%= link_to "Log In", new_session_path %></li>
+            <% end %>
+          </ul>
+      </div>
+
+
+
+
       <% if current_user %>
         <%= link_to current_user.username, user_path(current_user) %>
         <%= button_to 'Log Out', session_path, method: :delete %>
