@@ -7,6 +7,7 @@ class User < ApplicationRecord
     validates :password, length: PASSWORD_LENGTH, allow_nil: true
 
     has_many :books
+    has_many :reviews
 
     attr_reader :password
 
