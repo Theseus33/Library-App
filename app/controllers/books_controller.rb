@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-    before_action :find_book, only: [:show, :edit, :destroy]
+    before_action :find_book, only: [:show, :edit, :update, :destroy]
     # before_action :require_login, except: [:index, :show]
 
     def index
@@ -11,10 +11,13 @@ class BooksController < ApplicationController
         end
     end
 
-    def show
-        @book = Book.find(params[:id])
-
-    end
+	def show
+		if @book.reviews.blank?
+			@average_review = 0
+		else
+			@average_review = @book.reviews.average(:rating).round(2)
+		end
+	end
 
     def new 
         @book = current_user.books.build
@@ -37,7 +40,7 @@ class BooksController < ApplicationController
     end
 
     def update
-        @book.category-id = params[:category_id]
+        @book.category_id = params[:category_id]
         if @book.update(book_params)
             redirect_to book_path(@book)
         else
