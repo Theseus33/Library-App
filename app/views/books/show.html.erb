@@ -7,6 +7,9 @@
         <h1> <%= @book.title %> </h1>
         <h3> Author: <%= @book.author %> </h3>
         <h3> Genre: <%= @book.category.name %></h3>
+        <h3> Average Rating </h3>
+        <div class="average-review-rating" data-score=<%= @average_review%>></div>
+        <span><%= @book.reviews.count %> total reviews</span>
         <p> <%= @book.description%> </p>
     </div>
 
@@ -43,7 +46,6 @@
         path: '/assets/'
     });
 </script>
-
 
 <script>
     $('.average-review-rating').raty({
