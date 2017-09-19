@@ -10,10 +10,10 @@ class ApplicationController < ActionController::Base
     user.update!(session_token: session[:session_token])
   end 
 
-  def sign_out(user)
+  def sign_out
     return unless current_user
-    current_user.update!(session_token: nil)
-    session.delete(:session_token)
+    current_user.update_attribute(:session_token, nil)
+    session.delete(:token)
   end
 
   def current_user 

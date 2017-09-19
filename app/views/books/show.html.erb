@@ -22,7 +22,7 @@
         <div class="col-md-8 pull-right">
             <%= render @book.reviews %>
             <div>
-                <%= link_to "Add Review", new_book_reviews_path(@book) %>
+                <%= link_to "Add Review", new_book_review_path(@book) %>
             </div>
 
         </div>
@@ -31,7 +31,7 @@
 
 <% if current_user %>
     <% if @book.user_id == current_user.id %>
-        <%= link_to "Edit", edit_book_path(@book) %>
+        <%= link_to "Edit", edit_book_review_path %>
         <%= link_to "Delete", book_path(@book), method: :delete %>
     <% end %> 
 <% end %>  

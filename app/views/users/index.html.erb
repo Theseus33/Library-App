@@ -1,8 +1,5 @@
-<h3>Users</h3>
+<h3>Welcome to Book Club</h3>
 
-<ul>
-  <% @users.each do |user| %>
-    <li><%= link_to user.username, user_path(user) %></li>
-    <li><%= link_to "Your Books!", books_path %></li>
-  <% end %>
-</ul>
+<h5>The first rule of Book Club is talk about book club. Or what would be the point?</h5>
+
+<%= link_to "All Books!", books_path %>

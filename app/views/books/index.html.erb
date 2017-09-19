@@ -1,5 +1,4 @@
 <h1 class="current-category"> <%= params[:category] %> </h1>
-<%= link_to "Add Book!", new_book_path %>
 
 <% if @books.count == 0 %>
     <h2>There are no <%= params[:category] %> books currently.</h2>

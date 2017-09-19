@@ -3,7 +3,7 @@
   <head>
     <title>LibraryApp</title>
     <%= csrf_meta_tags %>
-
+    <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+39+Text" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -28,7 +28,7 @@
               <% end %>
           </ul>
 
-          <ul class="nav navbar-nav nacvbar-right">
+          <ul class="nav navbar-nav navbar-right">
 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Genres <span class="caret"></span></a>
@@ -38,7 +38,11 @@
                   <% end %>
                 </ul>
             </li>
+          </ul>
 
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Add Book", new_book_path %></li>
+          </ul>
       </div>
 
 
