@@ -16,7 +16,7 @@
       <div class="container">
 
         <div class="navbar-header">
-          <%= link_to "Book Club", books_path, class: "navbar-brand"%>
+          <%= link_to "Readit", books_path, class: "navbar-brand"%>
         </div>
 
           <ul class="nav navbar-nav">
@@ -34,7 +34,8 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Genres <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <% Category.all.each do |category| %>
-                    <li class="<%= 'active' if params[:category] == category.name %>"><% link_to category.name, books_path(category: category.name), class: "link" %></li>
+                    <li class="<%= 'active' if params[:category] == category.name %>">
+                    <%= link_to category.name, books_path(category: category.name), class: "link" %></li>
                   <% end %>
                 </ul>
             </li>
@@ -64,6 +65,7 @@
         <%= flash[:error] %>
         </div>
       <% end %>
+
     </div>
     
     <%= yield %>
