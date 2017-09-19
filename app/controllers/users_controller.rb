@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
 
-    before_action :ensure_signed_out, only: [:new, :create]
-    before_action :ensure_signed_in, only: [:show, :index]
-
+    def index
+        @user.count = User.count
+    end
+    
     def new 
         @user = User.new
     end
@@ -10,18 +11,16 @@ class UsersController < ApplicationController
     def create 
         @user = User.new(create_params)
 
-        if @user.save
-            sign_in(@user)
+        if  user.save
+            sign_in(user)
             flash[:notice] = 'Welcome to Your Library App'
             redirect_to users_path
         else
-            flash[:error] = @user.errors.full_messages.join(', ')
+            errors = user.errors.full_messages
+            flash[:error] = @user.errors.join(', ')
+            @user = User.new(username: create_params[:username])
             render :new
         end
-    end
-
-    def index
-        @users = User.all 
     end
 
     def show
