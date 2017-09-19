@@ -16,15 +16,15 @@
       <div class="container">
 
         <div class="navbar-header">
-          <%= link_to "Book Club", root_path, class: "navbar-brand"%>
+          <%= link_to "Book Club", books_path, class: "navbar-brand"%>
         </div>
 
           <ul class="nav navbar-nav">
-              <li><%= link_to "Sign Up", new_user_path %></li>
               <% if current_user %>
                 <li><%= link_to "Sign Out", session_path, method: :delete %></li>
               <% else %>
                 <li><%= link_to "Log In", new_session_path %></li>
+                <li><%= link_to "Sign Up", new_user_path %></li>
               <% end %>
           </ul>
 
@@ -39,9 +39,15 @@
                 </ul>
             </li>
           </ul>
+          
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "All Books", books_path %></li>
+          </ul>
 
           <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
             <li><%= link_to "Add Book", new_book_path %></li>
+          <% end %>
           </ul>
       </div>
 

@@ -5,17 +5,17 @@
     
     <div class="col-md-8">
         <h1> <%= @book.title %> </h1>
+        <hr/>
         <h3> Author: <%= @book.author %> </h3>
         <h3> Genre: <%= @book.category.name %></h3>
-        <h3> Average Rating </h3>
+        <h4> Average Rating </h4>
         <div class="average-review-rating" data-score=<%= @average_review%>></div>
         <span><%= @book.reviews.count %> total reviews</span>
+        <h1> </h1>
         <p> <%= @book.description%> </p>
     </div>
 
 </div>
-
-<%= link_to "Home", root_path %>
 
     <div class="row">
 
@@ -32,7 +32,7 @@
 <% if current_user %>
     <% if @book.user_id == current_user.id %>
         <%= link_to "Edit", edit_book_review_path %>
-        <%= link_to "Delete", book_path(@book), method: :delete %>
+        <%= link_to "Delete", book_review_path(review.book, review), method: :delete %>
     <% end %> 
 <% end %>  
 
