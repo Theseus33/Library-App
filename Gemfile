@@ -33,6 +33,7 @@ gem 'simple_form', '~> 3.5'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'paperclip', '~> 5.1'
 gem 'jquery-rails'
+gem 'bootstrap', '~> 4.0.0.alpha6'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
