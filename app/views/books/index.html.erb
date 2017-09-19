@@ -4,14 +4,14 @@
     <h2>There are no <%= params[:category] %> books currently.</h2>
 else
     <div class="row container">
-    <% @books.each do |book| %>
-  
-        <div class="col-md-4">
-            <a href="/books/<%= book.id %>">
-                <%= image_tag @book.book_img.url(:book_index) %>
-            </a>
-        </div>
-    <% end %>   
+        <% @books.each do |book| %>
+    
+            <div class="col-md-4">
+                <a href="/books/<%= book.id %>">
+                    <%= image_tag @book.book_img.url(:book_index), class:book %>
+                </a>
+            </div>
+        <% end %>   
     </div>
 
 <% end %>

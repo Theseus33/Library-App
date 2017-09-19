@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
 
-    before_action :ensure_signed_out, only: [:new, :create]
 
     def new
         @user = User.new
@@ -10,7 +9,7 @@ class SessionsController < ApplicationController
         username = user_params[:username]
         password = user_params[:password]
 
-        user = User.find_from_credentials(username, password)   
+        user = User.find_by_credentials(username, password)   
 
         if user
             sign_in(user)
@@ -26,7 +25,7 @@ class SessionsController < ApplicationController
     def destroy
         sign_out 
         flash[:notice] = 'You signed out'
-        redirect_to new_session_path
+        redirect_to users_path
     end
 
     private
