@@ -1,5 +1,6 @@
 <h1> Edit Book</h1>
-
+<%-# multipart allows for paperclip to work -%>
+<%-# simple form gem allows for creation of forms using the following format -%>
 <%= simple_form_for @book, :html => { :multipart => true } do |f| %>
     <%= f.select :category_id, @categories %>
     <%= f.file_field :book_img %>

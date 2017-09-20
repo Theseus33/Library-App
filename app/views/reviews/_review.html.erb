@@ -1,6 +1,6 @@
 <div class="review-rating" data-score="<%= review.rating %>"></div>
 <p><%= review.comment %><p>
-
+<%-# allows the user that commented to edit or delete -%>
 <% if current_user %>
 
     <% if review.user_id == current_user.id %>

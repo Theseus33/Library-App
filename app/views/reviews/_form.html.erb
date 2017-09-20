@@ -1,3 +1,4 @@
+<%-# form partial for rating with raty gem -%>
 <%= simple_form_for([@book, @book.reviews.build]) do |f| %>
     <div id="rating-form">
         <label>Rating</label>
@@ -6,7 +7,7 @@
     <%= f.button :submit %>
 <% end %>
 
-
+<%-# raty jquery to show star based ratings -%>
 <script>
     $('#rating-form').raty({
         path: '/assets',

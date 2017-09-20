@@ -1,4 +1,6 @@
 <h1 class="current-category"> <%= params[:category] %> </h1>
+<%-# allows display of books based on genre -%>
+<%-# if there are no books it will state there arent any under that category -%>
 
 <% if @books.count == 0 %>
     <h2>There are no <%= params[:category] %> books currently.</h2>

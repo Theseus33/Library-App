@@ -1,5 +1,5 @@
 <h1> Edit Review </h1>
-
+<%-# lets user that commented edit their review -%>
 <div>
     <%= simple_form_for([@book, @review]) do |f| %>
         <div id="rating-form">
@@ -9,7 +9,7 @@
         <%= f.button :submit %>
     <% end %>
 </div>
-
+<%-# raty jquery to display star rating -%>
 <script>
 $('#rating-form').raty({
     path: '/assets/',
