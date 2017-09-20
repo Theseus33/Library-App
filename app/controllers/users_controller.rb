@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
-
+#premethod actions which checks if user is signed in or not
     before_action :ensure_signed_out, only: [:new, :create]
     before_action :ensure_signed_in, only: [:show, :index]
 
     def new 
         @user = User.new
     end
-
+#create a new user with respect to the parameters set in private methods
+#flashes welcome message
     def create 
         @user = User.new(create_params)
 
@@ -19,11 +20,11 @@ class UsersController < ApplicationController
             render :new
         end
     end
-
+#defines all users
     def index
         @users = User.all 
     end
-
+#defines user by id number 
     def show
         @user = User.find(params[:id])
     end

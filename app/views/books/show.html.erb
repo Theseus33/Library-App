@@ -2,7 +2,7 @@
     <div class="col-md-4">
         <%= image_tag @book.book_img.url(:book_show), class: "showBook" %>
     </div>
-    
+    <%-# iterates through book values to display title author etc -%>
     <div class="col-md-8">
         <h1> <%= @book.title %> </h1>
         <hr/>
@@ -18,7 +18,7 @@
 </div>
 
     <div class="row">
-
+    <%-# limits reviews to logged in users while unregistered/not logged in persons can only view it -%>
         <div class="col-md-8 pull-right">
             <%= render @book.reviews %>
             <div>
@@ -30,15 +30,7 @@
         </div>
     </div>
 
-
-<% if current_user %>
-    <% if @book.user_id == current_user.id %>
-        <%= link_to "Edit", edit_book_review_path %>
-        <%= link_to "Delete", book_review_path(review.book, review), method: :delete %>
-    <% end %> 
-<% end %>  
-
-
+    <%-# raty command script that allows functionality for the star ratings as an average to show -%>
 <script>
     $('.review-rating').raty({
         readOnly: true,
