@@ -9,8 +9,8 @@ Wire Frames
 
 
 Live
-![Login](./app/assets/images/ss2.jpg)
-![Book Detail](./app/assets/images/ss1.jpg)
+![Login](./app/assets/images/ss2.png)
+![Book Detail](./app/assets/images/ss1.png)
 
 (didnt end up using but may add in the future)API https://www.programmableweb.com/api/new-york-times-best-sellers
 
